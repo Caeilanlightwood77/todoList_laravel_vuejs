@@ -37,71 +37,126 @@ Follow these steps to set up the project locally:
 ```bash
 git clone https://github.com/Caeilanlightwood77/todoList_laravel_vuejs.git
 cd todoList_laravel_vuejs
-2. Install Dependencies
-Backend (Laravel)
-bash
-Copier le code
+```
+
+### 2. **Install Dependencies**
+
+#### Backend (Laravel)
+
+```bash
 composer install
-Frontend (Vue.js)
-bash
-Copier le code
+```
+
+#### Frontend (Vue.js)
+
+```bash
 npm install
-3. Set Up Environment Variables
-Copy the .env.example file to create a .env file:
+```
 
-bash
-Copier le code
+### 3. **Set Up Environment Variables**
+
+Copy the `.env.example` file to create a `.env` file:
+
+```bash
 cp .env.example .env
-Update the .env file with your database configurations:
+```
 
-plaintext
-Copier le code
+Update the `.env` file with your database configurations:
+
+```plaintext
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=your_database_name
 DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
-4. Generate Application Key
-bash
-Copier le code
-php artisan key:generate
-5. Run Database Migrations
-bash
-Copier le code
-php artisan migrate
-6. Run the Development Server
-Start the Backend Server
-bash
-Copier le code
-php artisan serve
-Start the Frontend Server
-bash
-Copier le code
-npm run dev
-The application should now be accessible at: http://127.0.0.1:8000
+```
 
-✅ Available API Endpoints
-Method	Endpoint	Description
-GET	/api/tasks	Fetch all tasks
-POST	/api/tasks	Create a new task
-PUT	/api/tasks/{id}	Update a task (title/status)
-DELETE	/api/tasks/{id}	Delete a task
-📝 Contributing
+### 4. **Generate Application Key**
+
+```bash
+php artisan key:generate
+```
+
+### 5. **Run Database Migrations**
+
+```bash
+php artisan migrate
+```
+
+### 6. **Run the Development Servers**
+
+#### Start the Backend Server
+
+```bash
+php artisan serve
+```
+
+#### Start the Frontend Server
+
+```bash
+npm run dev
+```
+
+The application should now be accessible at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## ✅ **Available API Endpoints**
+
+| **Method** | **Endpoint**      | **Description**             |
+|------------|-------------------|-----------------------------|
+| `GET`     | `/api/tasks`      | Fetch all tasks             |
+| `POST`    | `/api/tasks`      | Create a new task           |
+| `PUT`     | `/api/tasks/{id}` | Update a task (title/status)|
+| `DELETE`  | `/api/tasks/{id}` | Delete a task               |
+
+---
+
+## 📝 **Contributing**
+
 Contributions are welcome! To contribute:
 
-Fork the repository.
-Create a new branch: git checkout -b feature/YourFeature.
-Commit your changes: git commit -m "Add new feature".
-Push to the branch: git push origin feature/YourFeature.
-Submit a pull request.
-🛡️ License
-This project is licensed under the MIT License.
+1. Fork the repository.
+2. Create a new branch:
 
-📬 Contact
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m "Add new feature"
+   ```
+
+4. Push to the branch:
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+5. Submit a pull request.
+
+---
+
+## 🛡️ **License**
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 📬 **Contact**
+
 For questions or feedback, feel free to reach out:
 
-GitHub: Caeilanlightwood77
-🔗 Useful Links
-Laravel Documentation: https://laravel.com/docs
-Vue.js Documentation: https://vuejs.org
+- **GitHub**: [Caeilanlightwood77](https://github.com/Caeilanlightwood77)
+
+---
+
+## 🔗 **Useful Links**
+
+- **Laravel Documentation**: [https://laravel.com/docs](https://laravel.com/docs)  
+- **Vue.js Documentation**: [https://vuejs.org](https://vuejs.org)
+
+---
