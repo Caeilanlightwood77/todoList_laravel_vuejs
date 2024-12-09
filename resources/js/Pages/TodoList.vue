@@ -1,7 +1,7 @@
 <template>
     <div :class="darkMode
-            ? 'dark bg-gray-900 text-gray-100'
-            : 'bg-gray-100 text-gray-900'
+        ? 'dark bg-gray-900 text-gray-100'
+        : 'bg-gray-100 text-gray-900'
         " class="min-h-screen py-12">
         <div class="container mx-auto max-w-4xl bg-white dark:bg-gray-800 shadow-md rounded-lg">
             <!-- Header -->
@@ -61,8 +61,8 @@
                 <ul class="space-y-3">
                     <li v-for="task in filteredTasks" :key="task.id"
                         class="flex items-center justify-between p-4 rounded-lg shadow-sm" :class="task.status === 'completed'
-                                ? 'bg-green-200 dark:bg-green-700'
-                                : 'bg-gray-50 dark:bg-gray-700'
+                            ? 'bg-green-200 dark:bg-green-700'
+                            : 'bg-gray-50 dark:bg-gray-700'
                             ">
                         <div class="flex-1">
                             <input v-if="editingTaskId === task.id" v-model="editedTaskTitle"
@@ -78,8 +78,8 @@
                             <!-- Mark as Completed Button -->
                             <button @click="toggleTaskStatus(task)" class="px-3 py-1 text-sm rounded-lg shadow-md"
                                 :class="task.status === 'completed'
-                                        ? 'bg-gray-500 text-white hover:bg-gray-700'
-                                        : 'bg-green-500 text-white hover:bg-green-700'
+                                    ? 'bg-gray-500 text-white hover:bg-gray-700'
+                                    : 'bg-green-500 text-white hover:bg-green-700'
                                     ">
                                 {{
                                     task.status === "completed"
@@ -163,14 +163,17 @@ export default {
     computed: {
         filteredTasks() {
             return this.tasks
-                .filter(
-                    (task) =>
-                        task.title
-                            .toLowerCase()
-                            .includes(this.searchQuery.toLowerCase()) &&
-                        (this.statusFilter === "all" ||
-                            task.status === this.statusFilter)
-                )
+                .filter((task) => {
+                    const titleMatches = task.title
+                        .toLowerCase()
+                        .includes(this.searchQuery.toLowerCase());
+
+                    const statusMatches =
+                        this.statusFilter === "all" ||
+                        task.status.toLowerCase() === this.statusFilter.toLowerCase();
+
+                    return titleMatches && statusMatches;
+                })
                 .sort((a, b) => {
                     if (this.sortOrder === "asc")
                         return a.title.localeCompare(b.title);
