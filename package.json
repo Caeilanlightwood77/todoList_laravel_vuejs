@@ -2,9 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
         "dev": "vite",
-        "vercel-build": "composer install --no-dev --optimize-autoloader && npm run build"
+        "build": "vite build",
+        "vercel-build": "vite build"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
