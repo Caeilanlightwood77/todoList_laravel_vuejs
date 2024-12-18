@@ -72,7 +72,7 @@ const redirectToGoogle = () => {
 
             <!-- Login Form -->
             <form @submit.prevent="submit" class="mt-4 space-y-3">
-                <!-- Email and Password Inputs (Inline) -->
+                <!-- Email and Password Inputs -->
                 <div class="flex flex-col gap-3">
                     <div>
                         <InputLabel for="email" value="Email" />
@@ -165,6 +165,27 @@ const redirectToGoogle = () => {
                     </svg>
                     Continue with Google
                 </button>
+            </div>
+
+            <!-- Button to Welcome Page -->
+            <div class="mt-4 text-center">
+                <button
+                    @click="$inertia.visit('/')"
+                    class="w-full flex items-center justify-center bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                    Go to Welcome Page
+                </button>
+            </div>
+
+            <!-- Link to Register -->
+            <div class="mt-4 text-center">
+                <span class="text-gray-600">Don't have an account?</span>
+                <Link
+                    :href="route('register')"
+                    class="text-indigo-600 hover:underline ml-1"
+                >
+                    Register here
+                </Link>
             </div>
         </div>
     </GuestLayout>
