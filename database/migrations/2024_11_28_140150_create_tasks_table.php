@@ -9,15 +9,15 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up()
-    {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('status')->default('Pending');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('tasks', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained('users');
+        $table->string('title');
+        $table->string('status')->default('pending');
+        $table->timestamps();
+    });
+}
 
 
     /**

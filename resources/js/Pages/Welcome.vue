@@ -30,8 +30,7 @@
                     Welcome to the Future
                 </h1>
                 <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                    Explore innovations in AI, VR, AR, and Cryptography. Empower your
-                    projects with cutting-edge technologies.
+                    Please login to use the Todo-List Application
                 </p>
             </div>
 

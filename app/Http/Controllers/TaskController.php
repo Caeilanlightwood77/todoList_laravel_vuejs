@@ -14,11 +14,15 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'status' => 'nullable|string|in:pending,completed,in progress',
         ]);
 
-        $task = auth()->user()->tasks()->create($validated);
+        // Automatically set the user_id to the authenticated user's ID
+        $validatedData['user_id'] = auth()->id();
+
+        $task = Task::create($validatedData);
 
         return response()->json($task, 201);
     }
@@ -44,7 +48,8 @@ class TaskController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'title' => 'sometimes|string|max:255',
-            'status' => 'sometimes|string|in:pending,completed', // Allow lowercase values
+            'status' => 'sometimes|string|in:pending,completed',
+            'task_date' => 'sometimes|date',
         ]);
 
         // Update the task fields if provided
@@ -56,10 +61,13 @@ class TaskController extends Controller
             $task->status = $validated['status'];
         }
 
-        // Save the updated task
+        if ($request->has('task_date')) {
+            $task->task_date = $validated['task_date'];
+        }
+
         $task->save();
 
-        // Return the updated task as a JSON response
         return response()->json($task);
+
     }
 }
